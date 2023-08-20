@@ -1,10 +1,18 @@
 const express = require('express');
+const graphqlHTTP = require('express-graphql')
 const path = require('path');
 const db = require('./config/connection');
 const routes = require('./routes');
 
+
+// Invoke Express
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Setup express-graphql middleware to handle graphql request
+app.use('/graphql',graphqlHTTP({
+
+}));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
